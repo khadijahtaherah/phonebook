@@ -10,6 +10,7 @@ homepage - insert password -> password is correct - go to list:
 
 void homepage(void);
 int compare_password(int);
+void homepage_menu(void);
 
 int main() {
     homepage();
@@ -25,15 +26,13 @@ void homepage(void) {
     while(status != 1) {
         status = compare_password(password);
         if(status == 1) {
-            printf("Choose your selection\n");
+            homepage_menu();
         
         } else {
             printf("Wrong password. Enter the correct password:");
             scanf(" %d", &password); //space in second scanf to ignore whitespace as input
         }   
     }
-    
-    
 }
 
 int compare_password(int password) {
@@ -43,5 +42,27 @@ int compare_password(int password) {
         return 1;
     } else {
         return 0; 
+    }
+}
+
+void homepage_menu(void) {
+    printf("1. Add\n2. Edit\n3. Delete\n");
+    int selection = 0;
+    
+    while (selection == 0){
+        printf("Enter:");
+        scanf("%d", &selection);
+
+        if(selection == 1){
+            printf("Add:");
+       
+        } else if(selection == 2){
+            printf("Edit:");
+       
+        } else if(selection == 3){
+            printf("Delete:");
+        } else {
+            selection = 0;
+        }    
     }
 }
