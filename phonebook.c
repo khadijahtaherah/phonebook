@@ -18,16 +18,22 @@ int main() {
 
 void homepage(void) {
     int password = 0;
+    int status = 0;
     printf("Enter password:"); //prompt user
     scanf("%d", &password);
-
-    int status = compare_password(password);
     
-    if(status == 1) {
-        printf("Choose your selection\n");
-    } else {
-        printf("Wrong password. Enter the correct password: \n");
+    while(status != 1) {
+        status = compare_password(password);
+        if(status == 1) {
+            printf("Choose your selection\n");
+        
+        } else {
+            printf("Wrong password. Enter the correct password:");
+            scanf(" %d", &password); //space in second scanf to ignore whitespace as input
+        }   
     }
+    
+    
 }
 
 int compare_password(int password) {
