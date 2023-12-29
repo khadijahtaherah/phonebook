@@ -11,6 +11,7 @@ homepage - insert password -> password is correct - go to list:
 void homepage(void);
 int compare_password(int);
 void homepage_menu(void);
+void add(void);
 
 int main() {
     homepage();
@@ -54,7 +55,8 @@ void homepage_menu(void) {
         scanf("%d", &selection);
 
         if(selection == 1){
-            printf("Add:");
+           // printf("Add:");
+           add();
        
         } else if(selection == 2){
             printf("Edit:");
@@ -65,4 +67,16 @@ void homepage_menu(void) {
             selection = 0;
         }    
     }
+}
+
+void add(void){
+    char name[50];
+    int num_phone;
+
+    printf("Enter name: ");
+    scanf("%s", name);
+    printf("Enter phone number:");
+    scanf("%d", &num_phone);
+
+    printf("%s, %d\n", name, num_phone);
 }
